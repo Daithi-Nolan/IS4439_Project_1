@@ -1,26 +1,48 @@
-﻿// Controllers/ShopController.cs
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using IS4439_Project_1.Models; // Make sure the namespace matches your project (adjust if needed)
+using System.Collections.Generic;
+using System.Linq;
 
-public class ShopController : Controller
+namespace IS4439_Project_1.Controllers
 {
-    // Conventional route will hit this via Program.cs ("shop/list")
-    [HttpGet]
-    public IActionResult List()
+    public class ShopController : Controller
     {
-        // placeholder sample data for Iteration 3
-        ViewData["Products"] = new[] { "Coffee", "Tea", "Milk", "Sugar" };
-        return View();
-    }
+        // Sample in-memory product list for display
+        private static List<Product> SampleProducts => new()
+        {
+            new() { Id = 1, Name = "Coffee", Price = 3.50m, InStock = true },
+            new() { Id = 2, Name = "Tea",    Price = 2.80m, InStock = true },
+            new() { Id = 3, Name = "Milk",   Price = 1.20m, InStock = false },
+            new() { Id = 4, Name = "Sugar",  Price = 1.00m, InStock = true },
+        };
 
-    // Attribute route -> "/shop/details/5" (int only)
-    [HttpGet("shop/details/{id:int}")]
-    public IActionResult Details(int id)
-    {
-        ViewData["ProductId"] = id;
-        return View();
-    }
+        // Conventional route → /shop/list  (defined in Program.cs)
+        [HttpGet]
+        public IActionResult List()
+        {
+            // Pass the product list to the view
+            return View(SampleProducts);
+        }
 
-    // Optional: we'll use this in Iteration 4 (form + validation)
-    [HttpGet]
-    public IActionResult Add() => View();
+        // Attribute route → /shop/details/{id:int}
+        [HttpGet("shop/details/{id:int}")]
+        public IActionResult Details(int id)
+        {
+            var product = SampleProducts.FirstOrDefault(p => p.Id == id);
+            if (product is null)
+            {
+                // Graceful 404 handling if the ID isn’t found
+                return NotFound();
+            }
+
+            return View(product);
+        }
+
+        // Placeholder for the Add form (Iteration 4)
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+    }
 }

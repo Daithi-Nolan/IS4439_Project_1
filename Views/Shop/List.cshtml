@@ -1,13 +1,20 @@
-﻿@{
+﻿@model List<Product>
+@{
     ViewData["Title"] = "Products";
-    var products = (string[])ViewData["Products"]!;
 }
-
 <h1>Products</h1>
-<ul>
-    @foreach (var p in products)
-    {
-        <li>@p</li>
-    }
-</ul>
-<p><a asp-controller="Shop" asp-action="Add" role="button">Add Product</a></p>
+<table>
+    <thead><tr><th>Id</th><th>Name</th><th>Price</th><th>Stock</th><th></th></tr></thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.Name</td>
+                <td>€@p.Price</td>
+                <td>@(p.InStock ? "In stock" : "Out")</td>
+                <td><a asp-controller="Shop" asp-action="Details" asp-route-id="@p.Id">Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

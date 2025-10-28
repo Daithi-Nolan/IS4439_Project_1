@@ -1,6 +1,11 @@
-﻿@{
+﻿@model Product
+@{
     ViewData["Title"] = "Product Details";
 }
-<h1>Product Details</h1>
-<p>Showing details for product with ID: <strong>@ViewData["ProductId"]</strong></p>
+<h1>@Model.Name</h1>
+<ul>
+    <li><strong>Id:</strong> @Model.Id</li>
+    <li><strong>Price:</strong> €@Model.Price</li>
+    <li><strong>Status:</strong> @(Model.InStock ? "In stock" : "Out of stock")</li>
+</ul>
 <p><a asp-controller="Shop" asp-action="List">Back to list</a></p>
