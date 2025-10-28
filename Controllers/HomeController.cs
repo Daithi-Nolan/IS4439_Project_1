@@ -22,5 +22,22 @@ namespace IS4439_Project_1.Controllers
         {
             return View();
         }
+
+        [Route("error/{statusCode:int}")]
+        public IActionResult Error(int statusCode)
+        {
+            if (statusCode == 404)
+            {
+                // Use a custom 404 view
+                Response.StatusCode = 404;
+                return View("NotFound404");
+            }
+
+            // Generic fallback for other codes (optional)
+            ViewBag.StatusCode = statusCode;
+            Response.StatusCode = statusCode;
+            return View("GenericError");
+        }
+
     }
 }

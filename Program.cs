@@ -16,6 +16,9 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+// Re-executes the pipeline on error, so we can render a full View with our layout
+app.UseStatusCodePagesWithReExecute("/error/{0}");
+
 app.UseRouting();
 
 app.UseAuthorization();

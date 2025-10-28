@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Something went wrong";
+    var code = ViewBag.StatusCode ?? 500;
+}
+<h1>Oops — Error @code</h1>
+<p>We hit a snag. Try one of these:</p>
+<p>
+    <a asp-controller="Home" asp-action="Index" role="button">Home</a>
+    <a asp-controller="Shop" asp-action="List" role="button" class="secondary">Shop</a>
+</p>
