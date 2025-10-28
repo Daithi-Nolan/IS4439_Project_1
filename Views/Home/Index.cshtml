@@ -1,8 +1,21 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Welcome to MiniMart";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="hero">
+    <h1>Welcome to MiniMart</h1>
+    <p>Your tiny demo shop for the IS4439 CA1. Browse products, add new ones, and view details.</p>
+    <div class="cta-row">
+        <a class="btn" asp-controller="Shop" asp-action="List">Browse Products</a>
+        <a class="btn secondary" asp-controller="Shop" asp-action="Add">Add a Product</a>
+    </div>
+</section>
+
+<section class="features">
+    <h2>What’s inside</h2>
+    <ul>
+        <li>Custom layout on every page (this header + footer)</li>
+        <li>Clear routes for listing and viewing products</li>
+        <li>Form with validation to add a product</li>
+    </ul>
+</section>
