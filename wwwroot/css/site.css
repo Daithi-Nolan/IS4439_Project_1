@@ -18,3 +18,45 @@ nav a {
     .hero .btn {
         margin-top: 1rem;
     }
+
+/* ==== MiniMart custom navbar styling ==== */
+header nav {
+    background-color: #0074D9; /* deep blue header */
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+}
+
+    header nav a {
+        color: #fff !important; /* force white links */
+        font-weight: 600; /* semi-bold */
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+    }
+
+        header nav a:hover,
+        header nav a:focus {
+            opacity: 0.85; /* subtle hover fade */
+            text-decoration: underline;
+        }
+
+    header nav ul {
+        align-items: center;
+    }
+
+    header nav [role="button"] {
+        background-color: #005bb5; /* darker blue button */
+        border: none;
+        color: #fff;
+    }
+
+        header nav [role="button"]:hover {
+            background-color: #004999;
+        }
+
+/* optional: keep the header fixed with slight shadow */
+header.container {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

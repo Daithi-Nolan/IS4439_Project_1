@@ -13,7 +13,7 @@
     <!-- Pico.css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@picocss/pico@2/css/pico.min.css" />
 
-    <!-- Custom CSS overrides -->
+    <!-- Your overrides -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
@@ -26,9 +26,10 @@
             </ul>
             <ul>
                 <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                 <li><a asp-area="" asp-controller="Shop" asp-action="List">Shop</a></li>
-                <li><a asp-area="" asp-controller="Shop" asp-action="Add" role="button">Add Product</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="Privacy" class="secondary">Privacy</a></li>
+                <li><a asp-area="" asp-controller="Shop" asp-action="Add">Add Product</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
             </ul>
         </nav>
     </header>
@@ -40,8 +41,7 @@
     <footer class="container">
         <hr />
         <small>
-            &copy; @DateTime.Now.Year - MiniMart • Developed by Daithi Nolan (122377826)
-            <!-- Pico: https://picocss.com -->
+            &copy; @DateTime.Now.Year - MiniMart - Developed by Daithi Nolan (122377826)
         </small>
     </footer>
 
