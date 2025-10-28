@@ -1,5 +1,42 @@
-﻿@{
+﻿@model IS4439_Project_1.Models.Product
+@{
     ViewData["Title"] = "Add Product";
 }
+
 <h1>Add Product</h1>
-<p>This will be a form with validation in Iteration 4.</p>
+
+<form asp-action="Add" method="post">
+    @* Anti-forgery token is emitted automatically by the form tag helper *@
+    <fieldset>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <small class="invalid">@Html.ValidationMessageFor(m => m.Name)</small>
+    </fieldset>
+
+    <fieldset>
+        <label asp-for="Price"></label>
+        <input asp-for="Price" />
+        <small class="invalid">@Html.ValidationMessageFor(m => m.Price)</small>
+    </fieldset>
+
+    <fieldset>
+        <label>
+            <input asp-for="InStock" />
+            @Html.DisplayNameFor(m => m.InStock)
+        </label>
+    </fieldset>
+
+    @* Summary at top/bottom for any model-level errors *@
+    <article class="contrast">@Html.ValidationSummary(false)</article>
+
+    <button type="submit">Save</button>
+    <a asp-controller="Shop" asp-action="List" role="button" class="secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @* OPTIONAL: Client-side validation.
+       If your layout no longer includes jQuery, you can add these just for this page.
+       (If you prefer server-side-only validation, remove this section.) *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}
