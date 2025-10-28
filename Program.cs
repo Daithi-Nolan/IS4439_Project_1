@@ -20,8 +20,17 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// --- Conventional route (non-default) for Shop List ---
+app.MapControllerRoute(
+    name: "shop_list",
+    pattern: "shop/list",
+    defaults: new { controller = "Shop", action = "List" }
+);
+
+// --- Default catch-all route ---
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
 
 app.Run();

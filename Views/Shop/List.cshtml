@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Products";
+    var products = (string[])ViewData["Products"]!;
+}
+
+<h1>Products</h1>
+<ul>
+    @foreach (var p in products)
+    {
+        <li>@p</li>
+    }
+</ul>
+<p><a asp-controller="Shop" asp-action="Add" role="button">Add Product</a></p>

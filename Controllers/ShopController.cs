@@ -8,7 +8,7 @@ public class ShopController : Controller
     public IActionResult List()
     {
         // placeholder sample data for Iteration 3
-        ViewData["Products"] = new[] { "Coffee", "Tea", "Milk" };
+        ViewData["Products"] = new[] { "Coffee", "Tea", "Milk", "Sugar" };
         return View();
     }
 
