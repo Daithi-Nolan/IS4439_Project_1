@@ -8,27 +8,32 @@ namespace IS4439_Project_1.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        // Constructor for the HomeController
+        // Enables app to use logging if required
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
+        // Loads the main home page
         public IActionResult Index()
         {
             return View();
         }
 
+        // Shows the About page that explains what MiniMart can do
         public IActionResult About()
         {
             return View();
         }
 
-
+        // Displays the Privacy page (standard page from the template)
         public IActionResult Privacy()
         {
             return View();
         }
 
+        // Handles website errors and shows friendly messages
         [Route("error/{statusCode:int}")]
         public IActionResult Error(int statusCode)
         {

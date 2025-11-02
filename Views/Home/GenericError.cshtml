@@ -2,6 +2,13 @@
     ViewData["Title"] = "Something went wrong";
     var code = ViewBag.StatusCode ?? 500;
 }
+
+@* 
+    This page shows a friendly error message when something goes wrong.
+    It uses the status code from the controller (defaulting to 500 if unknown).
+    The user can return to the Home or Shop page from here.
+*@
+
 <h1>Oops — Error @code</h1>
 <p>We hit a snag. Try one of these:</p>
 <p>

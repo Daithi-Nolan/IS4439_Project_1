@@ -7,18 +7,22 @@
 
 <form asp-action="Add" method="post">
     @* Token is emitted automatically by the form tag helper *@
+
+    @* Product name input field *@
     <fieldset>
         <label asp-for="Name"></label>
         <input asp-for="Name" />
         <small class="invalid">@Html.ValidationMessageFor(m => m.Name)</small>
     </fieldset>
 
+    @* Product price input field *@
     <fieldset>
         <label asp-for="Price"></label>
         <input asp-for="Price" />
         <small class="invalid">@Html.ValidationMessageFor(m => m.Price)</small>
     </fieldset>
 
+    @* Checkbox to mark if the product is in stock *@
     <fieldset>
         <label>
             <input asp-for="InStock" />
@@ -26,18 +30,16 @@
         </label>
     </fieldset>
 
+    @* Text area for the short description (max ~100 words) *@
     <fieldset>
         <label asp-for="Description"></label>
         <textarea asp-for="Description" rows="3" placeholder="Enter a short description (max 100 words)..."></textarea>
         <small class="invalid">@Html.ValidationMessageFor(m => m.Description)</small>
     </fieldset>
 
-
-    @* Summary at top/bottom for any model-level errors *@
-    <article class="contrast">@Html.ValidationSummary(false)</article>
-
+    @* Save and Cancel buttons *@
     <button type="submit" style="background-color: #0074D9">Save</button>
-    <a asp-controller="Shop" asp-action="List" role="button" style="background-color: red">Cancel</a>
+    <a asp-controller="Shop" asp-action="List" role="button" style="background-color: red; border: red">Cancel</a>
 </form>
 
 

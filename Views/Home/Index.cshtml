@@ -2,16 +2,29 @@
     ViewData["Title"] = "Welcome to MiniMart";
 }
 
+@* 
+    This is the main homepage of MiniMart.
+    It gives a quick introduction to the site and links to the main shop page.
+*@
+
+
 <section class="hero">
     <h1>Welcome to MiniMart</h1>
     <p>Your tiny demo shop for the IS4439 CA1. Browse products, add new ones, and view details.</p>
+
+    @* Button that brings the user to the list of products *@
     <div class="cta-row">
-        <button class="btn" asp-controller="Shop" asp-action="List" style="background-color: #0074D9"><b>Browse Products</b></button>
+        <a asp-controller="Shop" asp-action="List" role="button" style="background-color:#0074D9; color:white; font-weight:bold;">
+            Let's Shop!
+        </a>
     </div>
 </section>
 
 
-
+@* 
+    This section links to the University College Cork website using 
+    the custom <test> tag helper created for this project.
+*@
 <section class="container" style="text-align:center; margin-top:2rem;">
     <h2>Learn More</h2>
     <p>

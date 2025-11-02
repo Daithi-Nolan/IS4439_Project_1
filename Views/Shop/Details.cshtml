@@ -2,11 +2,21 @@
 @{
     ViewData["Title"] = "Product Details";
 }
+
+@* 
+    This page shows the details for a single product.
+    The product data is passed in from the ShopController.
+*@
+
 <h1>@Model.Name</h1>
+
+@* A basic list showing all key product information *@
 <ul>
     <li><strong>Id:</strong> @Model.Id</li>
     <li><strong>Price:</strong> €@Model.Price</li>
     <li><strong>Status:</strong> @(Model.InStock ? "In stock" : "Out of stock")</li>
-    <li><strong>Derscription:</strong> @Model.Description</li>
+    <li><strong>Description:</strong> @Model.Description</li>
 </ul>
+
+@* Simple link to go back to the main product list *@
 <p><a asp-controller="Shop" asp-action="List">Back to list</a></p>

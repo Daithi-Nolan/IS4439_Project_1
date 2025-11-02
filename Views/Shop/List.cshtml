@@ -3,8 +3,14 @@
     ViewData["Title"] = "Products";
 }
 
+@* 
+    This page shows all the products currently in the MiniMart store.
+    It displays a table with product details and a link to view each item.
+*@
+
 <h1>Products</h1>
 
+@* Show a success message if a new product was just added *@
 @if (!string.IsNullOrWhiteSpace(ViewBag.Message as string))
 {
     <article class="contrast">
@@ -12,6 +18,7 @@
     </article>
 }
 
+@* Table showing all product data *@
 <table role="grid" style="width:100%;">
     <thead>
         <tr>
@@ -27,20 +34,24 @@
         @foreach (var p in Model)
         {
             <tr>
+                @* Display basic product info *@
                 <td>@p.Id</td>
                 <td><strong>@p.Name</strong></td>
                 <td>@p.Price.ToString("0.00")</td>
+                @* Show stock status in green or red *@
                 <td>
                     <span style="color:@(p.InStock ? "green" : "red"); font-weight:600;">
                         @(p.InStock ? "In Stock" : "Out of Stock")
                     </span>
                 </td>
+                @* Button linking to the product details page *@
                 <td>
                     <a asp-controller="Shop" asp-action="Details" asp-route-id="@p.Id"
                        role="button" style="background-color:#0074D9; color:white; font-weight:bold;">
                         Details
                     </a>
                 </td>
+                @* Show the short description or a fallback message *@
                 <td>
                     @if (!string.IsNullOrWhiteSpace(p.Description))
                     {
@@ -56,6 +67,7 @@
     </tbody>
 </table>
 
+@* Button to go to the Add Product page *@
 <p style="margin-top:1rem;">
     <a asp-controller="Shop" asp-action="Add" role="button"
        style="background-color:#0074D9; color:white; font-weight:bold;">

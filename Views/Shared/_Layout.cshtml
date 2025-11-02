@@ -17,6 +17,11 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
+
+    @* 
+        Header and navigation bar that appear on every page.
+        The links use tag helpers to move between different parts of the site.
+    *@
     <header class="container">
         <nav aria-label="Main navigation">
             <ul>
@@ -34,18 +39,23 @@
         </nav>
     </header>
 
+    @* 
+        The main content of each page is displayed here.
+        Each view’s HTML is injected where RenderBody() is.
+    *@
     <main class="container">
         @RenderBody()
     </main>
 
+    @* 
+        Footer shown on every page.
+        Includes the student name, year, and module info.
+    *@
     <footer class="container">
         <hr />
         <small>
             &copy; @DateTime.Now.Year - MiniMart - Developed by Daithi Nolan (122377826)
         </small>
     </footer>
-
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
 </body>
 </html>
