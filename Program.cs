@@ -9,28 +9,27 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-// Re-executes the pipeline on error, so we can render a full View with our layout
+// Re-executes the pipeline on error, so it can render a full View with the layout
 app.UseStatusCodePagesWithReExecute("/error/{0}");
 
 app.UseRouting();
 
 app.UseAuthorization();
 
-// --- Conventional route (non-default) for Shop List ---
+// Conventional route  for Shop List ---
 app.MapControllerRoute(
     name: "shop_list",
     pattern: "shop/list",
     defaults: new { controller = "Shop", action = "List" }
 );
 
-// --- Default catch-all route ---
+// Default catch-all route
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"

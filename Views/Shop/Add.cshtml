@@ -6,7 +6,7 @@
 <h1>Add Product</h1>
 
 <form asp-action="Add" method="post">
-    @* Anti-forgery token is emitted automatically by the form tag helper *@
+    @* Token is emitted automatically by the form tag helper *@
     <fieldset>
         <label asp-for="Name"></label>
         <input asp-for="Name" />
@@ -26,6 +26,13 @@
         </label>
     </fieldset>
 
+    <fieldset>
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" rows="3" placeholder="Enter a short description (max 100 words)..."></textarea>
+        <small class="invalid">@Html.ValidationMessageFor(m => m.Description)</small>
+    </fieldset>
+
+
     @* Summary at top/bottom for any model-level errors *@
     <article class="contrast">@Html.ValidationSummary(false)</article>
 
@@ -33,10 +40,4 @@
     <a asp-controller="Shop" asp-action="List" role="button" style="background-color: red">Cancel</a>
 </form>
 
-@section Scripts {
-    @* OPTIONAL: Client-side validation.
-       If your layout no longer includes jQuery, you can add these just for this page.
-       (If you prefer server-side-only validation, remove this section.) *@
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <partial name="_ValidationScriptsPartial" />
-}
+

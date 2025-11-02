@@ -7,5 +7,6 @@
     <li><strong>Id:</strong> @Model.Id</li>
     <li><strong>Price:</strong> €@Model.Price</li>
     <li><strong>Status:</strong> @(Model.InStock ? "In stock" : "Out of stock")</li>
+    <li><strong>Derscription:</strong> @Model.Description</li>
 </ul>
 <p><a asp-controller="Shop" asp-action="List">Back to list</a></p>

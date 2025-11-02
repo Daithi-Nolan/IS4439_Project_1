@@ -7,16 +7,44 @@ namespace IS4439_Project_1.Controllers
 {
     public class ShopController : Controller
     {
-        // Simple in-memory store for demo (persists while app runs)
+        // Simple in-memory store (persists while app runs)
         private static readonly List<Product> Products = new()
         {
-            new() { Id = 1, Name = "Coffee", Price = 3.50m, InStock = true },
-            new() { Id = 2, Name = "Tea",    Price = 2.80m, InStock = true },
-            new() { Id = 3, Name = "Milk",   Price = 1.20m, InStock = false },
-            new() { Id = 4, Name = "Sugar",  Price = 1.00m, InStock = true },
+           new()
+    {
+        Id = 1,
+        Name = "Coffee",
+        Price = 3.50m,
+        InStock = true,
+        Description = "Rich, aromatic coffee beans perfect for brewing a fresh cup in the morning. Medium roast with smooth flavor and balanced acidity."
+    },
+    new()
+    {
+        Id = 2,
+        Name = "Tea",
+        Price = 2.80m,
+        InStock = true,
+        Description = "A soothing blend of high-quality tea leaves that deliver a refreshing taste and calming aroma. Ideal for both hot and iced servings."
+    },
+    new()
+    {
+        Id = 3,
+        Name = "Milk",
+        Price = 1.20m,
+        InStock = false,
+        Description = "Fresh whole milk sourced from local farms. Great for cereals, baking, or enjoying on its own. Currently out of stock—check back soon!"
+    },
+    new()
+    {
+        Id = 4,
+        Name = "Sugar",
+        Price = 1.00m,
+        InStock = true,
+        Description = "Fine white granulated sugar, perfect for sweetening drinks, baking, or cooking. Dissolves quickly and adds the right touch of sweetness."
+    }
         };
 
-        // Conventional route → /shop/list (Program.cs)
+        // Conventional route: /shop/list (Program.cs)
         [HttpGet]
         public IActionResult List()
         {
@@ -25,7 +53,7 @@ namespace IS4439_Project_1.Controllers
             return View(Products);
         }
 
-        // Attribute route → /shop/details/{id:int}
+        // Attribute route: /shop/details/{id:int}
         [HttpGet("shop/details/{id:int}")]
         public IActionResult Details(int id)
         {
@@ -41,7 +69,7 @@ namespace IS4439_Project_1.Controllers
             return View(new Product());
         }
 
-        // POST: bind form -> validate -> add -> redirect
+        // POST: bind form - validate - add - redirect
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Add(Product model)

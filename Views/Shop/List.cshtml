@@ -12,14 +12,15 @@
     </article>
 }
 
-<table role="grid">
+<table role="grid" style="width:100%;">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price (€)</th>
-            <th>Status</th>
-            <th>Actions</th>
+            <th style="width:5%;">ID</th>
+            <th style="width:20%;">Name</th>
+            <th style="width:10%;">Price (€)</th>
+            <th style="width:10%;">Status</th>
+            <th style="width:15%;">Actions</th>
+            <th style="width:40%;">Description</th>
         </tr>
     </thead>
     <tbody>
@@ -27,19 +28,37 @@
         {
             <tr>
                 <td>@p.Id</td>
-                <td>@p.Name</td>
+                <td><strong>@p.Name</strong></td>
                 <td>@p.Price.ToString("0.00")</td>
-                <td>@(p.InStock ? "In Stock" : "Out of Stock")</td>
                 <td>
-                    <a asp-controller="Shop" asp-action="Details" asp-route-id="@p.Id" role="button" style="background-color: #0074D9">
+                    <span style="color:@(p.InStock ? "green" : "red"); font-weight:600;">
+                        @(p.InStock ? "In Stock" : "Out of Stock")
+                    </span>
+                </td>
+                <td>
+                    <a asp-controller="Shop" asp-action="Details" asp-route-id="@p.Id"
+                       role="button" style="background-color:#0074D9; color:white; font-weight:bold;">
                         Details
                     </a>
+                </td>
+                <td>
+                    @if (!string.IsNullOrWhiteSpace(p.Description))
+                    {
+                        <p style="margin:0;">@p.Description</p>
+                    }
+                    else
+                    {
+                        <em class="muted">No description</em>
+                    }
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<p>
-    <a asp-controller="Shop" asp-action="Add" role="button" style="background-color: #0074D9">Add Product</a>
+<p style="margin-top:1rem;">
+    <a asp-controller="Shop" asp-action="Add" role="button"
+       style="background-color:#0074D9; color:white; font-weight:bold;">
+        Add Product
+    </a>
 </p>

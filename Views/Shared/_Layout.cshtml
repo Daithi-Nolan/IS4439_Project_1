@@ -1,7 +1,7 @@
 ﻿@* Custom MiniMart layout using Pico.css
-   - Non-default header/footer (satisfies CA1 layout requirement)
-   - Simple, semantic markup; Pico handles the styling
-   - Keep your own ~/css/site.css for tiny overrides
+   - Non-default header/footer 
+   - Simple markup - Pico handles the styling
+   - /css/site.css for tiny overrides
 *@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
@@ -13,7 +13,7 @@
     <!-- Pico.css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@picocss/pico@2/css/pico.min.css" />
 
-    <!-- Your overrides -->
+    <!-- CSS overrides -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
@@ -45,7 +45,6 @@
         </small>
     </footer>
 
-    <!-- No Bootstrap/JS required for Pico; keep your app script if needed -->
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>

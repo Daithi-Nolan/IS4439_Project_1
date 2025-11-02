@@ -14,5 +14,9 @@ namespace IS4439_Project_1.Models
 
         [Display(Name = "In Stock")]
         public bool InStock { get; set; }
+
+        [Display(Name = "Short Description")]
+        [StringLength(700, ErrorMessage = "Description must be 100 words or fewer (approximately 700 characters).")]
+        public string? Description { get; set; }
     }
 }

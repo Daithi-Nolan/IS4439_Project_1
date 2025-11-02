@@ -19,7 +19,7 @@ nav a {
         margin-top: 1rem;
     }
 
-/* ==== MiniMart custom navbar styling ==== */
+/* MiniMart custom navbar styling */
 header nav {
     background-color: #0074D9; /* deep blue header */
     border-radius: 0.25rem;
@@ -53,10 +53,26 @@ header nav {
             background-color: #004999;
         }
 
-/* optional: keep the header fixed with slight shadow */
+/* keep the header fixed with slight shadow */
 header.container {
     position: sticky;
     top: 0;
     z-index: 10;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
+/* Make <test> tag link match styling */
+test, test a {
+    display: inline-block;
+    background-color: #0074D9;
+    color: #fff !important;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.2s ease;
+}
+
+    test:hover, test a:hover {
+        background-color: #005bb5;
+    }
