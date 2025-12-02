@@ -1,4 +1,4 @@
-﻿# MiniMart – IS4439 Web Application Development (CA1)
+﻿# MiniMart – IS4439 Web Application Development (CA2)
 
 **Student:** Daithi Nolan (122377826)  
 **Module:** IS4439 – Web Application Development  
